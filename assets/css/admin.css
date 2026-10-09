@@ -1,0 +1,723 @@
+/* ============================================================
+   Fanimeta - 后台美化样式
+   黄色漫画卡通风（Neubrutalism），与前台风格统一
+   ============================================================ */
+
+:root {
+  --fa-primary: #ffbe0b;
+  --fa-primary-dark: #d99e00;
+  --fa-primary-soft: #ffce45;
+  --fa-ink: #2b2b2b;
+  --fa-bg: #fff4d6;
+  --fa-card: #fff0c2;
+  --fa-text: #3a342e;
+  --fa-meta: #8a8072;
+  --fa-border: #e8d9b0;
+  --fa-comic-border: 2px solid #2b2b2b;
+}
+
+/* WordPress 5.9+ 后台主题色变量：统一改成黄色系（按钮/焦点/复选框等全站生效） */
+body.wp-admin {
+  --wp-admin-theme-color: #ffbe0b;
+  --wp-admin-theme-color--rgb: 255, 190, 11;
+  --wp-admin-theme-color-darker-10: #e5a800;
+  --wp-admin-theme-color-darker-10--rgb: 229, 168, 0;
+  --wp-admin-theme-color-darker-20: #cc9400;
+  --wp-admin-theme-color-darker-20--rgb: 204, 148, 0;
+  --wp-admin-theme-color-darker-30: #8a5c00;
+  --wp-admin-theme-color-darker-30--rgb: 166, 124, 0;
+}
+
+/* ---------- 全局背景（暖米色 + 网点纹理，呼应前台） ---------- */
+body.wp-admin,
+body.wp-admin #wpwrap {
+  background-color: var(--fa-bg);
+  background-image: radial-gradient(rgba(43, 43, 43, 0.06) 1.2px, transparent 1.2px);
+  background-size: 18px 18px;
+}
+
+/* ============================================================
+   顶部管理栏
+   ============================================================ */
+body.wp-admin #wpadminbar {
+  background: var(--fa-ink);
+}
+
+body.wp-admin #wpadminbar .ab-top-menu > li > .ab-item,
+body.wp-admin #wpadminbar .ab-top-menu > li > a,
+body.wp-admin #wpadminbar .ab-item,
+body.wp-admin #wpadminbar a.ab-item {
+  color: #fff;
+}
+
+body.wp-admin #wpadminbar .ab-top-menu > li:hover > .ab-item,
+body.wp-admin #wpadminbar .ab-top-menu > li.hover > .ab-item,
+body.wp-admin #wpadminbar .ab-top-menu > li > .ab-item:focus {
+  background: var(--fa-primary);
+  color: var(--fa-ink);
+}
+
+body.wp-admin #wpadminbar .menupop .ab-sub-wrapper,
+body.wp-admin #wpadminbar .ab-submenu {
+  background: var(--fa-ink);
+}
+
+body.wp-admin #wpadminbar .ab-submenu .ab-item,
+body.wp-admin #wpadminbar .ab-submenu a.ab-item {
+  color: #e8e3d5;
+}
+
+body.wp-admin #wpadminbar .ab-submenu .ab-item:hover,
+body.wp-admin #wpadminbar .ab-submenu .ab-item:focus {
+  background: var(--fa-primary);
+  color: var(--fa-ink);
+}
+
+body.wp-admin #wpadminbar .quicklinks .menupop ul li a:hover strong {
+  color: var(--fa-ink);
+}
+
+/* ============================================================
+   左侧菜单
+   ============================================================ */
+body.wp-admin #adminmenuback,
+body.wp-admin #adminmenuwrap {
+  background: var(--fa-ink);
+}
+
+body.wp-admin #adminmenu {
+  background: var(--fa-ink);
+}
+
+body.wp-admin #adminmenu a {
+  color: #efe9da;
+}
+
+body.wp-admin #adminmenu div.wp-menu-image:before {
+  color: #ffffff;
+}
+
+body.wp-admin #adminmenu li.menu-top:hover,
+body.wp-admin #adminmenu li.opensub > a.menu-top,
+body.wp-admin #adminmenu li > a.menu-top:focus {
+  background: var(--fa-primary);
+}
+
+body.wp-admin #adminmenu li.menu-top:hover > a,
+body.wp-admin #adminmenu li.menu-top:hover .wp-menu-name,
+body.wp-admin #adminmenu li.menu-top:hover div.wp-menu-image:before {
+  color: var(--fa-ink);
+}
+
+/* 当前选中项：黄色底黑字 */
+body.wp-admin #adminmenu li.wp-has-current-submenu a.wp-has-current-submenu,
+body.wp-admin #adminmenu li.current a.menu-top {
+  background: var(--fa-primary);
+  color: var(--fa-ink);
+}
+
+body.wp-admin #adminmenu li.current a.menu-top .wp-menu-name,
+body.wp-admin #adminmenu li.current a.menu-top div.wp-menu-image:before,
+body.wp-admin #adminmenu li.wp-has-current-submenu a.wp-has-current-submenu .wp-menu-name {
+  color: var(--fa-ink);
+}
+
+/* 子菜单：深色底 + 黄色 hover */
+body.wp-admin #adminmenu .wp-submenu,
+body.wp-admin #adminmenu .wp-has-current-submenu .wp-submenu,
+body.wp-admin #adminmenu .wp-has-current-submenu.opensub .wp-submenu {
+  background: #1f1f1f;
+}
+
+body.wp-admin #adminmenu .wp-submenu a {
+  color: #e8e3d4;
+}
+
+body.wp-admin #adminmenu .wp-submenu a:hover,
+body.wp-admin #adminmenu .wp-submenu a:focus,
+body.wp-admin #adminmenu .wp-submenu li.current a,
+body.wp-admin #adminmenu .wp-submenu li.current a .wp-menu-name {
+  color: var(--fa-primary);
+}
+
+/* 更新/评论气泡：黄色底黑字 */
+body.wp-admin #adminmenu .awaiting-mod,
+body.wp-admin #adminmenu .update-plugins,
+body.wp-admin #adminmenu .awaiting-mod .pending-count {
+  background: var(--fa-primary) !important;
+  color: var(--fa-ink) !important;
+  font-weight: 700;
+}
+
+/* 折叠按钮 */
+body.wp-admin #collapse-button .collapse-button-label {
+  color: #efe9da;
+}
+
+body.wp-admin #collapse-button:hover .collapse-button-label {
+  color: var(--fa-primary);
+}
+
+/* ============================================================
+   内容区标题
+   ============================================================ */
+body.wp-admin .wrap h1 {
+  color: var(--fa-ink);
+  font-family: 'Lato', "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+body.wp-admin .wrap h2,
+body.wp-admin .wrap h3 {
+  color: var(--fa-ink);
+}
+
+body.wp-admin .wp-heading-inline {
+  color: var(--fa-ink);
+}
+
+/* ============================================================
+   链接
+   ============================================================ */
+body.wp-admin .wrap a,
+body.wp-admin #wpbody-content a {
+  color: #8a5c00;
+}
+
+body.wp-admin .wrap a:hover,
+body.wp-admin #wpbody-content a:hover {
+  color: var(--fa-primary-dark);
+}
+
+/* ============================================================
+   按钮（漫画风：黑描边 + 硬阴影）
+   ============================================================ */
+body.wp-admin .wp-core-ui .button,
+body.wp-admin .wp-core-ui .button-secondary {
+  background: #fff;
+  border: var(--fa-comic-border);
+  border-radius: 6px;
+  color: var(--fa-ink);
+  box-shadow: 2px 2px 0 rgba(43, 43, 43, 0.3);
+  transition: all 0.15s;
+}
+
+body.wp-admin .wp-core-ui .button:hover,
+body.wp-admin .wp-core-ui .button-secondary:hover,
+body.wp-admin .wp-core-ui .button:focus {
+  background: #fff6d8;
+  border-color: var(--fa-ink);
+  color: var(--fa-ink);
+  box-shadow: 1px 1px 0 rgba(43, 43, 43, 0.35);
+  transform: translate(1px, 1px);
+}
+
+body.wp-admin .wp-core-ui .button-primary {
+  background: var(--fa-primary) !important;
+  border: var(--fa-comic-border) !important;
+  border-radius: 6px !important;
+  color: var(--fa-ink) !important;
+  box-shadow: 2px 2px 0 rgba(43, 43, 43, 0.55) !important;
+  text-shadow: none;
+  font-weight: 700;
+  transition: all 0.15s;
+}
+
+body.wp-admin .wp-core-ui .button-primary:hover,
+body.wp-admin .wp-core-ui .button-primary:focus {
+  background: var(--fa-primary-soft) !important;
+  border-color: var(--fa-ink) !important;
+  color: var(--fa-ink) !important;
+  box-shadow: 1px 1px 0 rgba(43, 43, 43, 0.55) !important;
+  transform: translate(1px, 1px);
+}
+
+body.wp-admin .wp-core-ui .button-link {
+  color: #8a5c00;
+}
+
+body.wp-admin .wp-core-ui .button-link:hover {
+  color: var(--fa-primary-dark);
+}
+
+/* ============================================================
+   卡片（postbox / welcome-panel 等）
+   ============================================================ */
+body.wp-admin .postbox,
+body.wp-admin .stuffbox {
+  background: #fff;
+  border: var(--fa-comic-border);
+  border-radius: 10px;
+  box-shadow: 3px 3px 0 rgba(43, 43, 43, 0.22);
+}
+
+body.wp-admin .postbox-header {
+  border-bottom: 1px solid var(--fa-border);
+}
+
+body.wp-admin .postbox .hndle,
+body.wp-admin .postbox h2 {
+  color: var(--fa-ink);
+}
+
+/* 仪表盘欢迎面板 */
+body.wp-admin .welcome-panel {
+  background: #fff;
+  border: var(--fa-comic-border);
+  border-radius: 10px;
+  box-shadow: 3px 3px 0 rgba(43, 43, 43, 0.22);
+}
+
+body.wp-admin .welcome-panel .welcome-panel-close {
+  color: var(--fa-ink);
+}
+
+body.wp-admin .welcome-panel h2 {
+  color: var(--fa-ink);
+}
+
+/* ============================================================
+   通知
+   ============================================================ */
+body.wp-admin .notice,
+body.wp-admin div.updated,
+body.wp-admin div.error {
+  border-left: 4px solid var(--fa-primary);
+  border-radius: 4px;
+}
+
+body.wp-admin .notice-success {
+  border-left-color: #46b450;
+}
+
+body.wp-admin .notice-error {
+  border-left-color: #dc3232;
+}
+
+body.wp-admin .notice-warning {
+  border-left-color: #ffb900;
+}
+
+/* ============================================================
+   表单输入
+   ============================================================ */
+body.wp-admin input[type="text"],
+body.wp-admin input[type="password"],
+body.wp-admin input[type="email"],
+body.wp-admin input[type="search"],
+body.wp-admin input[type="url"],
+body.wp-admin input[type="number"],
+body.wp-admin select,
+body.wp-admin textarea {
+  border: 1px solid var(--fa-border);
+  border-radius: 4px;
+  color: var(--fa-text);
+}
+
+body.wp-admin input[type="text"]:focus,
+body.wp-admin input[type="password"]:focus,
+body.wp-admin input[type="search"]:focus,
+body.wp-admin input[type="url"]:focus,
+body.wp-admin input[type="number"]:focus,
+body.wp-admin select:focus,
+body.wp-admin textarea:focus {
+  border-color: var(--fa-primary);
+  box-shadow: 0 0 0 2px rgba(255, 190, 11, 0.22);
+}
+
+/* ============================================================
+   列表表格
+   ============================================================ */
+body.wp-admin .wp-list-table thead th,
+body.wp-admin .wp-list-table tfoot th {
+  background: var(--fa-card);
+  color: var(--fa-ink);
+}
+
+body.wp-admin .wp-list-table tbody tr:hover,
+body.wp-admin .striped > tbody > tr:hover {
+  background: #fff6d8;
+}
+
+body.wp-admin .plugins .active td,
+body.wp-admin .plugins .active th {
+  background: #fff6d8;
+  box-shadow: inset 4px 0 0 var(--fa-primary);
+}
+
+/* ============================================================
+   导航标签（设置页 tabs）
+   ============================================================ */
+body.wp-admin .nav-tab {
+  background: #fff;
+  border: 1px solid var(--fa-border);
+  border-bottom: none;
+  border-radius: 6px 6px 0 0;
+  color: var(--fa-meta);
+}
+
+body.wp-admin .nav-tab:hover {
+  color: var(--fa-ink);
+}
+
+body.wp-admin .nav-tab-active,
+body.wp-admin .nav-tab-active:hover {
+  background: var(--fa-card);
+  border: var(--fa-comic-border);
+  border-bottom: none;
+  color: var(--fa-ink);
+}
+
+/* ============================================================
+   其他细节
+   ============================================================ */
+body.wp-admin .plugin-card,
+body.wp-admin .theme {
+  border: var(--fa-comic-border);
+  border-radius: 8px;
+  box-shadow: 2px 2px 0 rgba(43, 43, 43, 0.18);
+}
+
+body.wp-admin #wpfooter {
+  color: var(--fa-meta);
+}
+
+/* 后台页脚感谢提示（保留版权，风格统一） */
+body.wp-admin #wpfooter a {
+  color: #8a5c00;
+}
+
+/* ============================================================
+   内容审核
+   ============================================================ */
+.fa-review-section {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 26px 0 12px;
+}
+
+.fa-count-pill {
+  display: inline-block;
+  min-width: 22px;
+  text-align: center;
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: var(--fa-primary);
+  color: var(--fa-ink);
+  font-size: 13px;
+  font-weight: 700;
+  border: 2px solid var(--fa-ink);
+}
+
+.fa-count-pill.is-muted {
+  background: #e6ddc7;
+}
+
+.fa-review-list {
+  display: grid;
+  gap: 14px;
+  max-width: 960px;
+}
+
+.fa-review-card {
+  background: #fff;
+  border: var(--fa-comic-border);
+  border-radius: 10px;
+  padding: 16px 18px;
+  box-shadow: 3px 3px 0 rgba(43, 43, 43, 0.18);
+}
+
+.fa-review-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.fa-review-title {
+  margin: 0;
+  font-size: 16px;
+}
+
+.fa-badge {
+  font-size: 12px;
+  padding: 1px 9px;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+}
+
+.fa-badge.is-wait {
+  color: #8a5c00;
+  background: #fff4d6;
+}
+
+.fa-review-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 8px 0;
+  color: var(--fa-meta);
+  font-size: 13px;
+}
+
+.fa-review-author {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.fa-review-author img {
+  border-radius: 50%;
+}
+
+.fa-review-excerpt {
+  background: #fffaeb;
+  border: 1px solid var(--fa-border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--fa-text);
+  max-height: 140px;
+  overflow: auto;
+}
+
+.fa-review-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+  align-items: center;
+}
+
+.fa-inline-form {
+  display: inline;
+  margin: 0;
+}
+
+.fa-reject-form {
+  margin-top: 12px;
+  border-top: 1px dashed var(--fa-border);
+  padding-top: 12px;
+}
+
+.fa-reject-label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.fa-reject-form textarea {
+  width: 100%;
+  max-width: 640px;
+}
+
+.fa-reject-actions {
+  margin: 8px 0 0;
+}
+
+.fa-empty {
+  background: #fff;
+  border: 1px dashed var(--fa-border);
+  border-radius: 10px;
+  padding: 22px;
+  color: var(--fa-meta);
+  max-width: 960px;
+}
+
+/* ============================================================
+   站点概览
+   ============================================================ */
+.fa-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 14px;
+  margin: 18px 0 24px;
+  max-width: 1000px;
+}
+
+.fa-card {
+  background: #fff;
+  border: var(--fa-comic-border);
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 3px 3px 0 rgba(43, 43, 43, 0.18);
+}
+
+.fa-card.is-wait {
+  background: #fff8e6;
+}
+
+.fa-card-num {
+  display: block;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--fa-ink);
+}
+
+.fa-card-label {
+  display: block;
+  color: var(--fa-meta);
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.fa-dash-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 18px;
+  max-width: 1000px;
+}
+
+.fa-panel {
+  background: #fff;
+  border: var(--fa-comic-border);
+  border-radius: 10px;
+  padding: 18px;
+  box-shadow: 3px 3px 0 rgba(43, 43, 43, 0.18);
+}
+
+.fa-panel h2 {
+  margin: 0 0 14px;
+  font-size: 15px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--fa-border);
+}
+
+.fa-panel h2:not(:first-child) {
+  margin-top: 22px;
+}
+
+.fa-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  height: 170px;
+  padding: 0 2px;
+  border-bottom: 2px solid var(--fa-border);
+}
+
+.fa-chart-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+}
+
+.fa-chart-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+}
+
+.fa-bar {
+  width: 42%;
+  border-radius: 3px 3px 0 0;
+  border: 1px solid rgba(43, 43, 43, 0.5);
+  min-height: 2px;
+}
+
+.fa-bar.is-post {
+  background: var(--fa-primary);
+}
+
+.fa-bar.is-user {
+  background: #7bc47f;
+}
+
+.fa-chart-x {
+  font-size: 10px;
+  color: var(--fa-meta);
+  margin-top: 4px;
+  white-space: nowrap;
+}
+
+.fa-legend {
+  display: flex;
+  align-items: center;
+  margin: 10px 0 0;
+  font-size: 12px;
+  color: var(--fa-meta);
+}
+
+.fa-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  border: 1px solid rgba(43, 43, 43, 0.5);
+}
+
+.fa-dot.is-post {
+  background: var(--fa-primary);
+  margin: 0 4px 0 6px;
+}
+
+.fa-dot.is-user {
+  background: #7bc47f;
+  margin: 0 4px 0 14px;
+}
+
+.fa-todo {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.fa-todo li {
+  border-bottom: 1px solid var(--fa-border);
+}
+
+.fa-todo li:last-child {
+  border-bottom: none;
+}
+
+.fa-todo a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 9px 2px;
+  color: var(--fa-text);
+}
+
+.fa-todo-label {
+  font-size: 14px;
+}
+
+.fa-todo-num {
+  font-weight: 700;
+  padding: 1px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  border: 1px solid var(--fa-ink);
+}
+
+.fa-todo-num.is-alert {
+  background: #ffe0e0;
+  color: #b32d2e;
+}
+
+.fa-todo-num.is-zero {
+  background: #f0ecdf;
+  color: var(--fa-meta);
+}
+
+.fa-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+}
+
+@media (max-width: 960px) {
+  .fa-dash-grid {
+    grid-template-columns: 1fr;
+  }
+}

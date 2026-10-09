@@ -1,0 +1,25 @@
+# ---- 操作系统 ----
+.DS_Store
+._*
+Thumbs.db
+desktop.ini
+
+# ---- 编辑器 / IDE ----
+.vscode/
+.idea/
+*.sublime-*
+*.swp
+*.swo
+
+# ---- 临时与日志 ----
+*.log
+*.tmp
+*.bak
+*~
+*.orig
+*.rej
+
+# ---- 本地测试脚本（不上线、不入库）----
+_t_*.php
+_t-*.php
+*.local.php
